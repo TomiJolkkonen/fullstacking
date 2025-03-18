@@ -22,14 +22,14 @@ const numberValidators = [
       }
       return true;
     },
-    msg: "must be at least 8 digits",
+    msg: "min 8 merkkia",
   },
   {
     // Regex validator to allow only numbers
     validator: (number) => {
       return /^\d{2,3}-\d+$/.test(number);
     },
-    msg: "invalid phone number",
+    msg: "vaara numero",
   },
 ];
 
@@ -54,4 +54,4 @@ personSchema.set("toJSON", {
   },
 });
 
-module.exports = mongoose.model("Person", personSchema);
+module.exports = mongoose.model("Henkilo", personSchema);
