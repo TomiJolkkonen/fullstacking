@@ -1,0 +1,20 @@
+# Käytetään Node.js:n virallista LTS-versiota
+FROM node:lts
+
+# Määritellään työskentelyhakemisto
+WORKDIR /usr/src/app
+
+# Kopioidaan package.json ja package-lock.json
+COPY package*.json ./
+
+# Asennetaan riippuvuudet
+RUN npm install
+
+# Kopioidaan sovelluksen lähdekoodi
+COPY . .
+
+# Exposoidaan portti
+EXPOSE 3000
+
+# Määritellään komento, jolla sovellus käynnistetään
+CMD ["npm", "start"]
